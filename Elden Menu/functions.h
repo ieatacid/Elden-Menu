@@ -162,11 +162,11 @@ void pauseGame(bool x, uintptr_t pauseAddr)
 void mapInCombat(bool x, uintptr_t MapInCombat1Addr, uintptr_t MapInCombat2Addr)
 {
 	if (x) {
-		Replace(MapInCombat1Addr, { MASKED, MASKED, MASKED, MASKED, MASKED }, { 0x48, 0x31, 0xC0, 0x90, 0x90 });
+		Replace(MapInCombat1Addr, { MASKED, MASKED, MASKED, MASKED, MASKED }, { 0x90, 0x90, 0x90, 0x90, 0x90 });
 		Replace(MapInCombat2Addr, { 0x74 }, { 0xeb });
 	}
 	else {
-		Replace(MapInCombat1Addr, { 0x48, 0x31, 0xC0, 0x90, 0x90 }, { 0xE8, 0xE4, 0x8E, 0x3A, 0x00 });
+		Replace(MapInCombat1Addr, { 0x90, 0x90, 0x90, 0x90, 0x90 }, { 0xE8, 0x80, 0x39, 0x3E, 0x00 });
 		Replace(MapInCombat2Addr, { 0xeb }, { 0x74 });
 	}
 }
